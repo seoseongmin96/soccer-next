@@ -1,0 +1,9 @@
+.nav {
+    dispaly: flex;
+    justify-content: space-between;
+    background-color: rgb(51, 255, 0);
+}
+.li {
+    display: inline;
+    margin-left: 48px;
+}
