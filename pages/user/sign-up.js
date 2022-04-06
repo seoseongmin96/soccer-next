@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, {useState} from 'react'
 export default function SignUp(){
     const [inputs, setInputs] = useState({})
+    const proxy = 'http://localhost:5000'
 
  
     const handleChange = e => {
@@ -14,7 +15,7 @@ export default function SignUp(){
     
     const handleSubmit = e => {
         e.preventDefault()
-        axios.post('http://localhost5000/api/user/sing-up', inputs)
+        axios.post(proxy+'/api/user/sign-up', inputs)
         .then(res => {
             const signup = res.data
             document.getElementById('result-span').innerHTML = `
@@ -22,6 +23,7 @@ export default function SignUp(){
             <h3>비밀번호 : ${signup.password}</h3>
             <h3>이름 : ${signup.name}</h3>
             <h3>전화번호 : ${signup.telephone}</h3>
+            <h3>회원가입 결과 : ${signup.signup}</h3>
             `
         })
         .catch(err => alert(err))
@@ -30,8 +32,9 @@ export default function SignUp(){
 
 
 
-    return (<div><h1>회원가입폼</h1>
+    return (<div>
         <form action="" onSubmit={handleSubmit}>
+            <h1>회원가입폼</h1>
   
             <div>
                 <label><b>사용자 ID</b></label>
@@ -45,7 +48,7 @@ export default function SignUp(){
 
                 <label><b>전화번호</b></label>
                 <input type="text" name='telephone' onChange={handleChange}/><br />
-                <input type="submit" value="회원가입" /><br />  
+                <input type="submit" value="전송" /><br />  
             </div>
         </form>
         <div> 결과 : <span id= "result-span"></span></div>
