@@ -7,7 +7,6 @@ export default function Nav(){
         <li className={styles.li}><Link href='/'>Home</Link></li>
         <li className={styles.li}><Link href='/board/board-list'>Board</Link></li>
         <li className={styles.li}><Link href='/game/game-list'>Game</Link></li>
-        <li className={styles.li}><Link href='/common/basic-link'>Basic</Link></li>
         <li className={styles.li}><Link href='/basic/calc'>Calculator</Link></li>
         <li className={styles.li}><Link href='/basic/counter'>Counter</Link></li>
         <li className={styles.li}><Link href='/basic/bmi'>BMI</Link></li>

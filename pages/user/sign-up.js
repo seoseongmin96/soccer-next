@@ -48,7 +48,7 @@ export default function SignUp(){
 
                 <label><b>전화번호</b></label>
                 <input type="text" name='telephone' onChange={handleChange}/><br />
-                <input type="submit" value="전송" /><br />  
+                <button >전 송</button><button>취 소</button><br />
             </div>
         </form>
         <div> 결과 : <span id= "result-span"></span></div>
