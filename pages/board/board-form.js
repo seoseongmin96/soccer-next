@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 import axios from "axios";
 export default function BoardForm(){
     const [inputs, setInputs] = useState({})
+    const proxy = 'http://localhost:5000'
     const {passengerId, name, teamId, subject} = inputs;
     const handleChange = (e) => {
         e.preventDefault()
@@ -13,7 +14,7 @@ export default function BoardForm(){
     const handleSubmit = e => {
         e.preventDefault()
         alert(`등록할 게시글 : ${JSON.stringify(inputs)}`)
-        axios.post('http://localhost:5000/api/board/write', inputs).then(res => {
+        axios.post(proxy+'/api/board/board-form', inputs).then(res => {
             alert(`결과 : ${res.data.result}`)
         })
         .catch(err => alert(err))
