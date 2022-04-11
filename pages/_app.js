@@ -1,9 +1,13 @@
 import {Layout} from "common/index";
-function MyApp({ Component,pageProps }) {
+import { wrapper } from '../redux/store'
+
+const App = ({ Component,pageProps }) => {
   return (
     <Layout>
     <Component{...pageProps}/>
     </Layout>
   )
 }
-export default MyApp
+
+export default wrapper.withRedux(App)
+
