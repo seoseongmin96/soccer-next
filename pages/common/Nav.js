@@ -11,8 +11,8 @@ export default function Nav(){
         <li className={styles.li}><Link href='/basic/counter'>Counter</Link></li>
         <li className={styles.li}><Link href='/basic/bmi'>BMI</Link></li>
         <li className={styles.li}><Link href='/basic/grade'>Grade</Link></li>
-        <li className={styles.li}><Link href='/user/sign-in'>SignIn</Link></li>
-        <li className={styles.li}><Link href='/user/sign-up'>SignUp</Link></li>
+        <li className={styles.li}><Link href='/user/login'>로그인</Link></li>
+        <li className={styles.li}><Link href='/user/join'>회원가입</Link></li>
         <li className={styles.li}><Link href='/admin/dashboard'>DashBoard</Link></li><br/>
         <li className={styles.li}><Link href='/board/board-list'>BoardList</Link></li>
         <li className={styles.li}><Link href='/game/game-list'>GameList</Link></li>
@@ -20,7 +20,7 @@ export default function Nav(){
         <li className={styles.li}><Link href='/todo/todo-list'>TodoList</Link></li>
         <li className={styles.li}><Link href='/board/board-form'>BoardForm</Link></li>
         <li className={styles.li}><Link href='/game/team-form'>TeamForm</Link></li>
-        <li className={styles.li}><Link href='/user/user-list'>UserList</Link></li>
+        <li className={styles.li}><Link href='/user/user-list'>사용자목록</Link></li>
         </ul>
         
         </nav>

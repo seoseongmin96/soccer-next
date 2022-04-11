@@ -15,7 +15,7 @@ export default function SignUp(){
     
     const handleSubmit = e => {
         e.preventDefault()
-        axios.post(proxy+'/api/user/sign-up', inputs)
+        axios.post(proxy+'/api/user/signup', inputs)
         .then(res => {
             const signup = res.data
             document.getElementById('result-span').innerHTML = `
