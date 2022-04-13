@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from "react";
 import { getBindingIdentifiers } from "@babel/types";
+//import 'todo/style/Task.scss'
 import Image from "next/image";
 export default function AppTasks() {
  const [task,setTask] = useState();
@@ -41,7 +42,9 @@ const [check, setCheck] = useState(false)
           <span className="visually-hidden"> tasks</span>
         </button>
       </div>
+    {/**
       <h2 id="list-heading">
+      
         3 tasks remaining
       </h2>
       <ul
@@ -73,7 +76,7 @@ const [check, setCheck] = useState(false)
             </button>
           </div>
         </li>
-      </ul>
+      </ul>*/}
     </div>
   );
 }
