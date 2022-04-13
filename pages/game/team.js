@@ -1,6 +1,6 @@
 import style from "board/style/board-form.module.css"
 import React, {useState} from 'react'
-export default function TeamForm(){
+export default function Team(){
     const [inputs, setInputs] = useState({})
     const {TeamId, HomeTown, TeamName, orgYyyy, stadiumName, address, tel} = inputs;
     const handleChange = (e) => {

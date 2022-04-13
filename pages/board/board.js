@@ -1,7 +1,7 @@
 import style from "board/style/board-form.module.css"
 import React, {useState} from 'react'
 import axios from "axios";
-export default function BoardForm(){
+export default function Board(){
     const [inputs, setInputs] = useState({})
     const proxy = 'http://localhost:5000'
     const {passengerId, name, teamId, subject} = inputs;
