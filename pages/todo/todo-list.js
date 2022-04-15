@@ -1,53 +1,60 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import React, {useState} from 'react'
+import { useDispatch } from 'react-redux'
 import tableStyles from '../common/style/table.module.css'
-import Link from 'next/link';
-const Table = ({ columns, colspan, data}) => {
-    return (
+import { addTask } from '../../redux/reducers/todoReducer.ts'
+export default function AddTodo() {
+    const [value, setValue] = useState('')
+    const [data, setData] = useState([])
+    const dispatch = useDispatch()
+  return (
+      <form onSubmit={ e => {
+          e.preventDefault()
+          alert('value ?'+value)
+          if(value) dispatch(addTask({task: value}))
+      }}>
         <table className={tableStyles.table}>
         <thead>
-        <tr className={tableStyles.tr}>
-        {columns.map((column, index) => (
-            <th className= {tableStyles.td} key={index}>{column}</th>
-        ))}
-        </tr>
+            <tr>
+                <th colSpan={2}><h2>투두리스트</h2></th>
+            </tr>
         </thead>
         <tbody>
-            { data.length ==0 ?<tr className={tableStyles.tr}>
-                                <td colSpan={colspan} className={tableStyles.td}>할 일이 없습니다</td>
-                                </tr>
-            :data.map((todo) => (
-            <tr className={tableStyles.tr}  key={todo.text} >
-                <td className={tableStyles.td}>
-                <Link href= {{pathname:`/todo/[text]`,
-                              query:{selectedUser: 'test'}}} as={`/todo/${todo.text}`}>
-                <a>{todo.text}</a>              
-              </Link>
-
-            </td>
-                <td className={tableStyles.td}>{todo.text}</td>
-
-              </tr>
-          ))}
-          
-      </tbody>
-    </table>
+            <tr >
+                <td><label>할일등록</label></td>
+                <td>
+        <input
+          type="text"
+          id="new-todo-input"
+          className="input input__lg"
+          name="text"
+          autoComplete="off"
+          onChange={ e => {
+              e.preventDefault()
+                setValue(e.target.value)
+          }}
+        />
+        <button type="submit" style={{marginLeft:"20px"}}  className="btn btn__primary btn__lg">
+          Add
+        </button></td >
+            </tr>
+            <tr>
+              <td>
+                할일목록
+              </td>
+              <td>
+                {data.length == 0 ? 
+                <div>현재 등록된 일정이 없습니다</div>
+               
+                :data.map((todo) => (
+                    <div key={todo.context}>
+                        <div key={todo.context}></div>
+                    </div>
+                ))}
+              </td>
+            </tr>
+                </tbody>
+            </table>
+            </form>
+     
   );
-}
-
-export default function TodoList(){
-
-    const columns = [];
-    const [data, setData] = useState([])
-    useEffect(() =>{
-      axios.get('http://localhost:5000/api/todo/list').then(res=>{
-          setData(res.data.todo)
-      }).catch(err=>{})  
-    },[])
-    return (<>
-        <h1>스케줄 목록</h1>
-        <div className= {tableStyles.td}>
-        <Table columns={columns} colspan={4} data={data}/>
-        </div>
-        </>)
 }

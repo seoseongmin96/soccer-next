@@ -1,4 +1,4 @@
-import style from "board/style/board-form.module.css"
+import tableStyles from '../common/style/table.module.css'
 import React, {useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {addBoard} from '../../redux/reducers/boardReducer.ts'
@@ -13,60 +13,57 @@ export default function Board(){
      }
 
     
-    return (<>
-         <h1>게시글 등록</h1>
-         <div className={style.container}>
-            <form onSubmit = {e => {
-                e.preventDefault()
-                if(inputs) dispatch(addBoard(inputs))
-            }}>
-            <div className={style.row}>
-                <div className={style.col25}>
-                <label className={style.label} htmlFor="passengerId">글 제목</label>
-                </div>
-                <div className={style.col75}>
-                <input type="text" onChange={handleChange} className={style.inputText}
-                id="title" name="title" placeholder="글 제목 입력"/>
-                </div>
-            </div>
-            
-            <div className={style.row}>
-                <div className={style.col25}>
-                <label htmlFor="name">게시글 작성자 이름</label>
-                </div>
-                <div className={style.col75}>
-                <input type="text" onChange= {handleChange} className={style.inputText}
-                id="name" name="name" placeholder="게시글 작성자 이름 입력"/>
-                </div>
-            </div>
-            <div className={style.row}>
-                <div className={style.col25}>
-                <label htmlFor="team">응원팀</label>
-                </div>
-                <div className={style.col75}>
-                <select id="teamId" name="teamId" onChange={handleChange}>
-                    <option value="">응원팀 선택</option>
-                    <option value="K09">Fc seoul</option>
-                    <option value="K02">Suwon Samseong blue wings</option>
-                    <option value="K04">Incheon United</option>
-                </select>
-                </div>
-            </div>
-            <div className={style.row}>
-                <div className={style.col25}>
-                <label htmlFor="subject">게시글 내용</label>
-                </div>
-                <div className={style.col75}>
-                <input type="textarea" onChange={handleChange} id="subject" name="subject" style={{height:200 + "px"}}></input>
-                </div>
-            </div>
-            <br/>
-            
-            <div className={style.row}>
-                <input type="submit"   className={style.inputSubmit}
-                 value="Submit"/>
-            </div>
-            </form>
-            </div>
-    </>)
+     return (<form onSubmit={e => {
+        e.preventDefault()
+        
+        if(inputs) dispatch(addBoard(inputs))
+    }}><table className={tableStyles.table}>
+        <thead>
+            <tr>
+                <th colSpan={2}><h2>게시판 글쓰기</h2></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr >
+                <td><label>제 목</label></td>
+                <td><input type="text" onChange={handleChange}
+                        id="title" name="title" placeholder="제목 입력"/></td>
+            </tr>
+            <tr>
+                <td>
+                    <label>작성자</label>
+                </td>
+                <td >
+                    <input type="text" onChange={handleChange}
+                        id="name" name="name" placeholder="게시글 작성자 이름 입력"/>
+                </td>
+            </tr>
+            <tr >
+                <td >
+                    <label htmlFor="team">주제</label>
+                </td>
+                <td >
+                    <select id="teamId" name="teamId" onChange={handleChange}>
+                        <option value="">주제 선택</option>
+                        <option value="K09">영화</option>
+                        <option value="K02">도서</option>
+                        <option value="K04">여행</option>
+                    </select>
+                </td>
+            </tr>
+           
+            <tr >
+                <td >
+                    <label htmlFor="subject">내용</label>
+                </td>
+                <td >
+                    <input type="textarea"  id="subject" name="subject" onChange={handleChange} style={{height:200 + "px"}}></input>
+                </td>
+            </tr>
+            <tr >
+                <td colSpan={2}><input type="submit" value="Submit"/></td >
+            </tr>
+                </tbody>
+            </table>
+            </form>)
 }
