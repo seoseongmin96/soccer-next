@@ -5,19 +5,13 @@ export default function Nav(){
         <nav className={styles.nav}>
         <ul>
         <li className={styles.li}><Link href='/'>메인</Link></li>
-        <li className={styles.li}><Link href='/basic/bmi'>BMI</Link></li>
-        <li className={styles.li}><Link href='/basic/calc'>계산기</Link></li>
-        <li className={styles.li}><Link href='/basic/counter'>카운터</Link></li>
-        <li className={styles.li}><Link href='/user/login'>로그인</Link></li>
-        <li className={styles.li}><Link href='/user/join'>회원가입</Link></li>
-        <li className={styles.li}><Link href='/user/user-list'>사용자목록</Link></li>
-        <li className={styles.li}><Link href='/todo/todo'>스케줄등록</Link></li>
-        <li className={styles.li}><Link href='/todo/todo-list'>스케줄목록</Link></li>
-        <li className={styles.li}><Link href='/board/board'>게시글등록</Link></li>
-        <li className={styles.li}><Link href='/board/board-list'>게시글목록</Link></li>
-        <li className={styles.li}><Link href='/game/game-list'>게임목록</Link></li>
-        <li className={styles.li}><Link href='/game/team-list'>팀목록</Link></li>
-        <li className={styles.li}><Link href='/game/team-form'>팀등록</Link></li>
+        <li className={styles.li}><Link href='/common/link-to-link/article-link'>게시판</Link></li>
+        <li className={styles.li}><Link href='/common/link-to-link/basic-link'>베이식</Link></li>
+        <li className={styles.li}><Link href='/common/link-to-link/game-link'>게임</Link></li>
+        <li className={styles.li}><Link href='/common/link-to-link/todo-link'>투두</Link></li>
+        <li className={styles.li}><Link href='/common/link-to-link/user-link'>사용자</Link></li>
+        
+       
          </ul>
         
         </nav>
