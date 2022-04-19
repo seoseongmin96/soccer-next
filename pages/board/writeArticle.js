@@ -1,19 +1,18 @@
-import tableStyles from '../common/style/table.module.css'
 import React, {useState} from 'react'
-import {useDispatch} from 'react-redux'
-import {addBoard} from '../../redux/reducers/boardReducer.ts'
-
+import tableStyles from '../common/style/table.module.css'
+import { useDispatch } from 'react-redux'
+import { addBoard } from '../../redux/reducers/boardReducer.ts'
 export default function Board(){
-    const [inputs, setInputs] = useState({})
     const dispatch = useDispatch()
+    const [inputs, setInputs] = useState({})
 
     const handleChange = e => {
-        const {name, value} = e.target 
-        setInputs({...inputs, [name]: value})
-     }
+       const {name, value} = e.target 
+       setInputs({...inputs, [name]: value})
+    }
 
-    
-     return (<form onSubmit={e => {
+   
+    return (<form onSubmit={e => {
         e.preventDefault()
         
         if(inputs) dispatch(addBoard(inputs))
