@@ -8,4 +8,4 @@ export default function Logout(){
             localStorage.clear(e)
             window.location.href="/"
         }}> 로그아웃
-    </a>}
+    </a>} 
