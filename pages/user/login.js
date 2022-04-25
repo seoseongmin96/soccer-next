@@ -17,9 +17,9 @@ export default function  Login(){
             e.preventDefault()
             alert(' 진행 1: 로그인 클릭 ');
             dispatch(userActions.loginRequest(login))
-            // setLogin({
-            //     userid:'', password:''
-            // })
+             setLogin({
+                 userid:'', password:''
+             })
         }
     }
     >
